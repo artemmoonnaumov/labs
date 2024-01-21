@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function createObjects() {
+  const people = [
+    { name: "John", age: 30 },
+    { name: "Emma", age: 25 },
+    { name: "Michael", age: 45 }
+  ];
+
+  const cars = [
+    { brand: "Toyota", year: 2015 },
+    { brand: "BMW", year: 2018 },
+    { brand: "Honda", year: 2019 }
+  ];
+
+  const books = [
+    { title: "The Great Gatsby", publicationYear: 1925 },
+    { title: "To Kill a Mockingbird", publicationYear: 1960 },
+    { title: "1984", publicationYear: 1949 }
+  ];
+
+  return [people, cars, books];
+}
+
+
+const [peopleArray, carsArray, booksArray] = createObjects();
+
+
+console.log("People:", peopleArray);
+console.log("Cars:", carsArray);
+console.log("Books:", booksArray);
+
+</script>
+</body>
+</html>

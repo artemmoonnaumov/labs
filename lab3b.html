@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="ip">
+        <input type="text" name="n" placeholder="Введите IP-адрес">
+        <button type="button" onclick="pr3()">Проверить IP</button>
+    </form>
+
+    <script>
+    function pr3() {
+        var n = document.forms["ip"].elements["n"].value;
+        var regexp4 = /((25[0-5]|2[0-4]\d|[01]?\d?\d)\.(25[0-5]|2[0-4]\d|[01]?\d?\d)\.(25[0-5]|2[0-4]\d|[01]?\d?\d)\.(25[0-5]|2[0-4]\d|[01]?\d?\d))/i;
+        var regexp6 = /([0-9a-fA-F]{1,4}(:[0-9a-fA-F]{1,4}){7})/i;
+        var ip4 = n.match(regexp4);
+        var ip6 = n.match(regexp6);
+
+        if (ip4) {
+            document.writeln("IP4: " + ip4[0]);
+        } else if (ip6) {
+            document.writeln("IP6: " + ip6[0]);
+        } else {
+            document.writeln("IP нет");
+        }
+    }
+    </script>
+</body>
+</html>

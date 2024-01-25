@@ -6,22 +6,28 @@
     <title>Document</title>
 </head>
 <body>
+    <form name="ip">
+        <input type="text" name="n" placeholder="Введите IP-адрес">
+        <button type="button" onclick="pr3()">Проверить IP</button>
+    </form>
+
     <script>
-const ipAddressString = "192.168.0.1, 2001:0db8:85a3:0000:0000:8a2e:0370:7334, 123.456.789.0 ";
+    function pr3() {
+        var n = document.forms["ip"].elements["n"].value;
+        var regexp4 = /(25[0-5]|2[0-4]\d|[01]?\d{1,2})\.(25[0-5]|2[0-4]\d|[01]?\d{1,2})\.(25[0-5]|2[0-4]\d|[01]?\d{1,2})\.(25[0-5]|2[0-4]\d|[01]?\d{1,2})/i;
+        var regexp6 = /([0-9a-fA-F]{1,4}(:[0-9a-fA-F]{1,4}){7})/i;
+        var ip4 = n.match(regexp4);
+        var ip6 = n.match(regexp6);
 
-const regexIPv4 = /\b(?:\d{1,3}\.){3}\d{1,3}\b/g;
-const regexIPv6 = /[A-Fa-f0-9]{1,4}(?::[A-Fa-f0-9]{1,4}){7}/g;
-
-const validIPv4Addresses = ipAddressString.match(regexIPv4) || [];
-const validIPv6Addresses = ipAddressString.match(regexIPv6) || [];
-
-const allIPAddresses = [...validIPv4Addresses, ...validIPv6Addresses];
-
-allIPAddresses.forEach(ipAddress => {
-  const ipAddressVersion = validIPv4Addresses.includes(ipAddress) ? "v4" : "v6";
-  console.log("IP Address:", ipAddress);
-  console.log("IP Address Version:", ipAddressVersion);
-});
-</script>
+        if (ip4) {
+            document.writeln("IP4: " + ip4[0]);
+        } else if (ip6) {
+            document.writeln("IP6: " + ip6[0]);
+        } else {
+            document.writeln("IP нет"); // 2001:0db8:85a3:0000:0000:8a2e:0370:7334  192.168.0.1 
+        }
+    }
+    </script>
 </body>
 </html>
+

@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>lab1</title>
+</head>
+<body>
+<div>
+  <label for="one">Введите верхний предел индекса суммирования n:</label>
+  <input type="text" id="one">
+  <label for="two">Введите число x:</label>
+  <input type="text" id="two">
+  <input type="button" value="Ввод" onclick="main()">
+  <p id="result">Результат: </p>
+</div>
+
+<script>
+function Calculator(n, x) {
+  let sum = 0;
+  for (let a = 0; a <= n; a++) {
+    sum += (x ** (2 * a + 1)) / (2 * a + 1);
+  }
+  return sum * 2;
+}
+
+function main() {
+  let z = Number(document.getElementById('one').value);
+  let c = Number(document.getElementById('two').value);
+  let r = Calculator(z, c);
+  document.getElementById('result').innerText = 'Результат: ' + r;
+}
+</script>
+</body>
+</html>
